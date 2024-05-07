@@ -1,0 +1,1 @@
+#funcao com o loop principal do jogo
