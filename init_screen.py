@@ -1,14 +1,13 @@
 import pygame
 import random
 from os import path
-from config import IMG_DIR, FPS, GAME, QUIT, WIDTH, HEIGHT
+from config import *
 BLACK = (0,0,0) # Cor preta
 
 pygame.init()
 pygame.mixer.init()
-screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Flappy Tiago")
-clock = pygame.time.Clock()
+
 
 # Background da página inicial
 imagem = pygame.image.load(path.join(IMG_DIR, 'tela_inicio.JPEG'))

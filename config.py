@@ -1,4 +1,4 @@
-#coloquei medidas aleatorias
+import pygame
 from os import path
 
 # Estabelece a pasta que contem as figuras e sons.
@@ -10,10 +10,16 @@ FNT_DIR = path.join(path.dirname(__file__), 'imagens')
 WIDTH = 1200 # Largura da tela 
 HEIGHT = 700 # Altura da tela
 FPS = 60 # Frames por segundo
-
-
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+clock = pygame.time.Clock()
 
 # Estados para controle do fluxo da aplicação
 INIT = 0
 GAME = 1
 QUIT = 2
+
+#imagens
+fundo_blur = pygame.image.load("Jogo_Grupo4_1B/imagens/fundo_blur.JPEG") 
+coqueiro = pygame.image.load("Jogo_Grupo4_1B/imagens/coqueiro.PNG")
+nuvem = pygame.image.load("Jogo_Grupo4_1B/imagens/nuvem.PNG")
+tela_inicio = pygame.image.load("Jogo_Grupo4_1B/imagens/tela_inicio.JPEG")   
