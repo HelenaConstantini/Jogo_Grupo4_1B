@@ -7,9 +7,10 @@ SND_DIR = path.join(path.dirname(__file__), 'imagens')
 FNT_DIR = path.join(path.dirname(__file__), 'imagens')
 
 
-WIDTH = 900 # Largura da tela 
+WIDTH = 1200 # Largura da tela 
 HEIGHT = 700 # Altura da tela
 FPS = 60 # Frames por segundo
+
 
 
 # Estados para controle do fluxo da aplicação
