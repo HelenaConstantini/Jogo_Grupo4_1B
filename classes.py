@@ -1,16 +1,17 @@
 #definicao das classes do jogo 
+from typing import Any
 import pygame 
 from os import path 
-import config 
+from config import *
 
 pos_inic_tiago = (100, 250)
-personagem = pygame.image.load("imagens/personagem.PNG") 
+personagem = pygame.image.load("Jogo_Grupo4_1B/imagens/personagem.PNG") 
 
 class tiago (pygame.sprite.Sprite): 
     def __init__(self): 
         pygame.sprite.Sprite.__init__(self)
         self.image = personagem 
-        self.rect = self.imagem.get_rect() 
+        self.rect = self.image.get_rect() 
         self.rect.center = pos_inic_tiago 
 
     def update(self): 
@@ -23,8 +24,16 @@ class tiago (pygame.sprite.Sprite):
         # if user_input[pygame.K_SPACE] and not self.flap and self.rect.y > 0: 
             # self.flap = True 
 
+class Chao(pygame.sprite.Sprite):
+    def __init__(self, x, y):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = coqueiro_img
+        self.rect = self.image.get_rect()
+        self.rect.x, self.rect.y = x, y
 
-
-# class coqueiro (pygame.sprite.Sprite):
-
+    def update(self):
+        #mexe o chão
+        self.rect.x -= scroll_speed
+        if self.rect.x <= -WIDTH:
+            self.kill()
 
