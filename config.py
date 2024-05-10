@@ -20,7 +20,9 @@ GAME = 1
 QUIT = 2
 
 #imagens
-fundo_blur_img = pygame.image.load("Jogo_Grupo4_1B/imagens/fundo_blur.JPEG") 
-coqueiro_img = pygame.image.load("Jogo_Grupo4_1B/imagens/coqueiro.PNG")
-nuvem_img = pygame.image.load("Jogo_Grupo4_1B/imagens/nuvem.PNG")
-tela_inicio_img = pygame.image.load("Jogo_Grupo4_1B/imagens/tela_inicio.JPEG")   
+fundo_blur_img = pygame.image.load("imagens/fundo_blur.JPEG") 
+coqueiro_img = pygame.image.load("imagens/coqueiro.PNG")
+nuvem_img = pygame.image.load("imagens/nuvem.PNG")
+tela_inicio_img = pygame.image.load("imagens/tela_inicio.JPEG")   
+
+
