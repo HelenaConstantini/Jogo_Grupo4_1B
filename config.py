@@ -8,7 +8,7 @@ FNT_DIR = path.join(path.dirname(__file__), 'imagens')
 
 scroll_speed = 1
 
-WIDTH = 1200 # Largura da tela 
+WIDTH = 800 # Largura da tela 
 HEIGHT = 700 # Altura da tela
 FPS = 60 # Frames por segundo
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -24,5 +24,7 @@ fundo_blur_img = pygame.image.load("imagens/fundo_blur.JPEG")
 coqueiro_img = pygame.image.load("imagens/coqueiro.PNG")
 nuvem_img = pygame.image.load("imagens/nuvem.PNG")
 tela_inicio_img = pygame.image.load("imagens/tela_inicio.JPEG")   
+chao_img = pygame.image.load("imagens/chao.JPEG")
+personagem = pygame.image.load("imagens/personagem.PNG") 
 
 

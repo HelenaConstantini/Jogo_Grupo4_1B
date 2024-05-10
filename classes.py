@@ -5,7 +5,7 @@ from os import path
 from config import *
 
 pos_inic_tiago = (100, 250)
-personagem = pygame.image.load("imagens/personagem.PNG") 
+scroll_speed = 1
 
 class tiago (pygame.sprite.Sprite): 
     def __init__(self): 
@@ -27,7 +27,7 @@ class tiago (pygame.sprite.Sprite):
 class Chao(pygame.sprite.Sprite):
     def __init__(self, x, y):
         pygame.sprite.Sprite.__init__(self)
-        self.image = coqueiro_img
+        self.image = chao_img
         self.rect = self.image.get_rect()
         self.rect.x, self.rect.y = x, y
 

@@ -6,7 +6,7 @@ from classes import *
 from sys import exit
 
 
-pygame.init()
+#pygame.init()
 
 def quit_game(): #função que fecha o jogo
     for event in pygame.event.get():
@@ -14,16 +14,16 @@ def quit_game(): #função que fecha o jogo
             pygame.quit()
             exit()
 
-
+scroll_speed = 1
 clock = pygame.time.Clock()
 
 def main():
 
     run = True
-    coqueiro = pygame.sprite.Group()
+    chao = pygame.sprite.Group()
     nuvem = pygame.sprite.Group()
-    x_inicial, y_inicial = 0, 500
-    coqueiro.add(Chao(x_inicial, y_inicial))
+    x_inicial, y_inicial = 0, 600
+    chao.add(Chao(x_inicial, y_inicial))
 
     while run:
         #fecha o jogo
@@ -33,14 +33,18 @@ def main():
         screen.fill((0, 0, 0))
 
         #desenha coqueiros, nuvens e tiago
-        coqueiro.draw(screen)
+        chao.draw(screen)
         nuvem.draw(screen)
 
         #atualiza coqueiros, nuvens e tiago
-        coqueiro.update()
+        chao.update()
 
         #fundo de tela
         screen.blit(fundo_blur_img, (0, 0)) #recebe dois argumentos: uma imagem e as coordenadas
+
+        #spawn chao
+        if len(chao) <= 2:
+            chao.add(Chao(WIDTH, y_inicial))
 
         clock.tick(FPS)
         pygame.display.update()
