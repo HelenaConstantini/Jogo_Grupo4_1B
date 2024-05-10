@@ -1,1 +1,2 @@
-#função de carregamento de assets do jogo
+#função de carregamento de assets do jogo 
+# dan dan 
