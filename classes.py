@@ -5,7 +5,7 @@ from os import path
 from config import *
 
 pos_inic_tiago = (100, 250)
-personagem = pygame.image.load("Jogo_Grupo4_1B/imagens/personagem.PNG") 
+personagem = pygame.image.load("imagens/personagem.PNG") 
 
 class tiago (pygame.sprite.Sprite): 
     def __init__(self): 
