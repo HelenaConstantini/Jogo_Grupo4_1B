@@ -18,7 +18,6 @@ scroll_speed = 1
 clock = pygame.time.Clock()
 
 def main():
-      
     # Inicializa Tiago
     tiago = pygame.sprite.GroupSingle()
     tiago.add(Tiago())
@@ -33,13 +32,14 @@ def main():
         #fecha o jogo
         quit_game()
 
-       
-
         #reset frame
         screen.fill((0, 0, 0))
 
-        
 
+        # usuario 
+        usuario = pygame.key.get_pressed() 
+
+        
         #fundo de tela
         screen.blit(fundo_blur_img, (0, 0)) #recebe dois argumentos: uma imagem e as coordenadas
 
@@ -49,8 +49,6 @@ def main():
         if len(ground) <= 2:
             ground.add(Chao(WIDTH, y_inicial))
 
-        # usuario 
-        usuario = pygame.key.get_pressed()
 
         #desenha chao e tiago
         ground.draw(screen)
