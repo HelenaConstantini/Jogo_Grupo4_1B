@@ -20,10 +20,10 @@ clock = pygame.time.Clock()
 def main():
 
     run = True
-    chao = pygame.sprite.Group()
-    nuvem = pygame.sprite.Group()
-    x_inicial, y_inicial = 0, 600
-    chao.add(Chao(x_inicial, y_inicial))
+    ground = pygame.sprite.Group()
+    #nuvem = pygame.sprite.Group()
+    x_inicial, y_inicial = 0, 500
+    ground.add(Chao(x_inicial, y_inicial))
 
     while run:
         #fecha o jogo
@@ -32,19 +32,18 @@ def main():
         #reset frame
         screen.fill((0, 0, 0))
 
-        #desenha coqueiros, nuvens e tiago
-        chao.draw(screen)
-        nuvem.draw(screen)
-
-        #atualiza coqueiros, nuvens e tiago
-        chao.update()
-
         #fundo de tela
         screen.blit(fundo_blur_img, (0, 0)) #recebe dois argumentos: uma imagem e as coordenadas
 
+        #desenha chao
+        ground.draw(screen)
+
+        #atualiza chao
+        ground.update()
+
         #spawn chao
-        if len(chao) <= 2:
-            chao.add(Chao(WIDTH, y_inicial))
+        if len(ground) <= 2:
+            ground.add(Chao(WIDTH, y_inicial))
 
         clock.tick(FPS)
         pygame.display.update()

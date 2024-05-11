@@ -8,8 +8,8 @@ FNT_DIR = path.join(path.dirname(__file__), 'imagens')
 
 scroll_speed = 1
 
-WIDTH = 800 # Largura da tela 
-HEIGHT = 700 # Altura da tela
+WIDTH = 700 # Largura da tela 
+HEIGHT = 600 # Altura da tela
 FPS = 60 # Frames por segundo
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 clock = pygame.time.Clock()
@@ -26,5 +26,4 @@ nuvem_img = pygame.image.load("imagens/nuvem.PNG")
 tela_inicio_img = pygame.image.load("imagens/tela_inicio.JPEG")   
 chao_img = pygame.image.load("imagens/chao.JPEG")
 personagem = pygame.image.load("imagens/personagem.PNG") 
-
-
+ground_img = pygame.image.load("imagens/ground.PNG")
