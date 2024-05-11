@@ -18,6 +18,7 @@ scroll_speed = 1
 clock = pygame.time.Clock()
 
 def main():
+      
     # Inicializa Tiago
     tiago = pygame.sprite.GroupSingle()
     tiago.add(Tiago())
