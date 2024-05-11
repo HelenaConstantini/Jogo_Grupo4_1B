@@ -19,6 +19,7 @@ clock = pygame.time.Clock()
 
 def main():
 
+
     run = True
     ground = pygame.sprite.Group()
     #nuvem = pygame.sprite.Group()
@@ -29,21 +30,35 @@ def main():
         #fecha o jogo
         quit_game()
 
+       
+
         #reset frame
         screen.fill((0, 0, 0))
 
+        
+
         #fundo de tela
         screen.blit(fundo_blur_img, (0, 0)) #recebe dois argumentos: uma imagem e as coordenadas
+
+        # Tiago aparece 
+        tiago = pygame.sprite.GroupSingle()
+        tiago.add(Tiago())
 
         #spawn chao
         if len(ground) <= 2:
             ground.add(Chao(WIDTH, y_inicial))
 
-        #desenha chao
-        ground.draw(screen)
+        # usuario 
+        usuario = pygame.key.get_pressed()
 
-        #atualiza chao
+        #desenha chao e tiago
+        ground.draw(screen)
+        tiago.draw(screen)
+
+        #atualiza chao e tiago
         ground.update()
+        tiago.update(usuario) 
+
 
         clock.tick(FPS)
         pygame.display.update()

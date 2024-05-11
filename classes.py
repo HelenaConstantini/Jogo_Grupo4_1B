@@ -4,25 +4,39 @@ import pygame
 from os import path 
 from config import *
 
-pos_inic_tiago = (100, 250)
+
 scroll_speed = 1
 
-class tiago (pygame.sprite.Sprite): 
+class Tiago (pygame.sprite.Sprite): 
     def __init__(self): 
         pygame.sprite.Sprite.__init__(self)
         self.image = personagem 
+        self.image = pygame.transform.scale(personagem, (65, 65))
         self.rect = self.image.get_rect() 
         self.rect.center = pos_inic_tiago 
+        self.vel = 0 
+        self.pulo = False 
 
-    def update(self): 
+    def update (self, usuario): 
+        # Pulinho 
         self.vel += 0.5 
-        if self.vel < 500: 
+        if self.vel > 7: 
+            self.vel = 7 
+        if self.rect.y < 500: 
             self.rect.y += int(self.vel)
-        if self.vel == 0: 
-            self.flap = False 
+        if self.vel == 0: # Velocidade 0 = parte mais alta do pulo (usuário não consegue pular mais)
+            self.pulo = False
+            
+        # Usuario 
+        if usuario[pygame.K_SPACE] and not self.pulo and self.rect.y > 0:
+            self.pulo = True 
+            self.vel = -7 
 
-        # if user_input[pygame.K_SPACE] and not self.flap and self.rect.y > 0: 
-            # self.flap = True 
+        # Rotação Tiago 
+        self.image = pygame.transform.rotate(self.image, self.vel * -7)
+
+
+
 
 class Chao(pygame.sprite.Sprite):
     def __init__(self, x, y):

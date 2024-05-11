@@ -7,6 +7,7 @@ SND_DIR = path.join(path.dirname(__file__), 'imagens')
 FNT_DIR = path.join(path.dirname(__file__), 'imagens')
 
 scroll_speed = 1
+pos_inic_tiago = (100, 250) # Posição spawn Tiago 
 
 WIDTH = 551 # Largura da tela 
 HEIGHT = 600 # Altura da tela

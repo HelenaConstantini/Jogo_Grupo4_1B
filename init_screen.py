@@ -4,7 +4,7 @@ from os import path
 from config import *
 BLACK = (0,0,0) # Cor preta
 
-pygame.init()
+ 
 pygame.mixer.init()
 pygame.display.set_caption("Flappy Tiago")
 
