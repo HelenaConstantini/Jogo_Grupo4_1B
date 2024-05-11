@@ -27,7 +27,7 @@ class tiago (pygame.sprite.Sprite):
 class Chao(pygame.sprite.Sprite):
     def __init__(self, x, y):
         pygame.sprite.Sprite.__init__(self)
-        self.image = chao_img
+        self.image = ground_img
         self.rect = self.image.get_rect()
         self.rect.x, self.rect.y = x, y
 
