@@ -18,7 +18,9 @@ scroll_speed = 1
 clock = pygame.time.Clock()
 
 def main():
-
+    # Inicializa Tiago
+    tiago = pygame.sprite.GroupSingle()
+    tiago.add(Tiago())
 
     run = True
     ground = pygame.sprite.Group()
@@ -40,9 +42,7 @@ def main():
         #fundo de tela
         screen.blit(fundo_blur_img, (0, 0)) #recebe dois argumentos: uma imagem e as coordenadas
 
-        # Tiago aparece 
-        tiago = pygame.sprite.GroupSingle()
-        tiago.add(Tiago())
+        
 
         #spawn chao
         if len(ground) <= 2:
