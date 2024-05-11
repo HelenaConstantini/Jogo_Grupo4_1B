@@ -35,15 +35,15 @@ def main():
         #fundo de tela
         screen.blit(fundo_blur_img, (0, 0)) #recebe dois argumentos: uma imagem e as coordenadas
 
+        #spawn chao
+        if len(ground) <= 2:
+            ground.add(Chao(WIDTH, y_inicial))
+
         #desenha chao
         ground.draw(screen)
 
         #atualiza chao
         ground.update()
-
-        #spawn chao
-        if len(ground) <= 2:
-            ground.add(Chao(WIDTH, y_inicial))
 
         clock.tick(FPS)
         pygame.display.update()
