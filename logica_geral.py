@@ -51,12 +51,13 @@ def main():
 
 
         #desenha chao e tiago
-        ground.draw(screen)
         tiago.draw(screen)
+        ground.draw(screen)
 
         #atualiza chao e tiago
-        ground.update()
         tiago.update(usuario) 
+        ground.update()
+
 
 
         clock.tick(FPS)

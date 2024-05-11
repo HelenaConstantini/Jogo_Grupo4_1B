@@ -17,7 +17,7 @@ class Tiago (pygame.sprite.Sprite):
         self.flap = False
 
 
-    def update(self, user_input):
+    def update(self, usuario):
         # Gravity and Flap
         self.vel += 0.5
         if self.vel > 7:
@@ -31,7 +31,7 @@ class Tiago (pygame.sprite.Sprite):
         self.image = pygame.transform.rotate(self.image, self.vel * -7)
 
         # User Input
-        if user_input[pygame.K_SPACE] and not self.pulo and self.rect.y > 0:
+        if usuario[pygame.K_SPACE] and not self.pulo and self.rect.y > 0:
             self.pulo = True
             self.vel = -7
 
