@@ -55,7 +55,7 @@ def main():
         ground.draw(screen)
 
         #atualiza chao e tiago
-        tiago.update(usuario) 
+        # tiago.update(usuario) 
         ground.update()
 
 
