@@ -29,6 +29,8 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
+    
+
     # Draw / render
     screen.fill(BLACK)
     screen.blit(background, background_rect)

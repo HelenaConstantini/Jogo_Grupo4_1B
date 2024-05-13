@@ -8,56 +8,63 @@ from sys import exit
 
 #pygame.init()
 
-def quit_game(): #função que fecha o jogo
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            exit()
-
-scroll_speed = 1
-clock = pygame.time.Clock()
 
 def main():
-    # Inicializa Tiago
-    tiago = pygame.sprite.GroupSingle()
-    tiago.add(Tiago())
+    scroll_speed = 1
+    clock = pygame.time.Clock()
+    all_sprites = pygame.sprite.Group()
 
-    run = True
     ground = pygame.sprite.Group()
     #nuvem = pygame.sprite.Group()
     x_inicial, y_inicial = 0, 500
-    ground.add(Chao(x_inicial, y_inicial))
+    chao = Chao(x_inicial, y_inicial)
+    all_sprites.add(chao)
+    ground.add(chao)
+
+    # Inicializa Tiago
+    tiago = Tiago()
+    all_sprites.add(tiago)
+
+    run = True
 
     while run:
         #fecha o jogo
-        quit_game()
 
         #reset frame
         screen.fill((0, 0, 0))
 
 
         # usuario 
-        usuario = pygame.key.get_pressed() 
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    tiago.pular()
 
         
+        if len(ground) < 2:
+            chao = Chao(WIDTH, y_inicial)
+            all_sprites.add(chao)
+            ground.add(chao)
+
+
+        hits = pygame.sprite.spritecollide(tiago, ground, False, pygame.sprite.collide_mask)
+        if len(hits) > 0:
+            tiago.rect.bottom = chao.rect.top
+
+        if tiago.rect.top < 0:
+            tiago.rect.top = 0
+
+
+        #atualiza chao e tiago
+        all_sprites.update()
+
         #fundo de tela
         screen.blit(fundo_blur_img, (0, 0)) #recebe dois argumentos: uma imagem e as coordenadas
 
-        
-
-        #spawn chao
-        if len(ground) <= 2:
-            ground.add(Chao(WIDTH, y_inicial))
-
-
         #desenha chao e tiago
-        tiago.draw(screen)
-        ground.draw(screen)
-
-        #atualiza chao e tiago
-        ground.update()
-        tiago.update(usuario)
-
+        all_sprites.draw(screen)
 
 
         clock.tick(FPS)
