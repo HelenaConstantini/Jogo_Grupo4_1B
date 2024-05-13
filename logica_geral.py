@@ -4,6 +4,7 @@ import pygame
 from config import *
 from classes import *
 from sys import exit
+import random
 
 
 #pygame.init()
@@ -56,14 +57,31 @@ def main():
         if tiago.rect.top < 0:
             tiago.rect.top = 0
 
+        # configurando coqueiros
 
-        #atualiza chao e tiago
+        coqueiro_timer = 0
+        coqueiros = pygame.sprite.Group()
+
+        # alocando coqueiros
+
+        if coqueiro_timer <= 0:
+            x_top, x_bottom = 550, 550
+            y_top = random.randint(-600,-480)
+            y_bottom = y_top + random.randint(90,130) + coqueiro_img.get_height()
+            coqueiros.add(coqueiro(x_top, y_top, coqueiro_img))
+            coqueiros.add(coqueiro(x_bottom,y_bottom,coqueiro_img))
+            coqueiro_timer = random.randint(180,250)
+        coqueiro_timer -= 1
+        all_sprites.add(coqueiros)
+
+
+        #atualiza chao, tiago e coqueiros
         all_sprites.update()
 
         #fundo de tela
         screen.blit(fundo_blur_img, (0, 0)) #recebe dois argumentos: uma imagem e as coordenadas
 
-        #desenha chao e tiago
+        #desenha chao,tiago e coqueiros
         all_sprites.draw(screen)
 
 

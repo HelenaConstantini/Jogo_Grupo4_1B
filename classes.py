@@ -22,7 +22,6 @@ class Tiago (pygame.sprite.Sprite):
 
 
     def update(self):
-        print(self.vel)
         if self.vel == 0:
             self.pulo = False
 
@@ -51,6 +50,23 @@ class Chao(pygame.sprite.Sprite):
 
     def update(self):
         #mexe o chão
+        self.rect.x -= scroll_speed
+        if self.rect.x <= -WIDTH:
+            self.kill()
+
+
+
+ # coqueiros
+
+class coqueiro(pygame.sprite.Sprite):
+    def __init__(self,x,y,image):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = image
+        self.rect = self.image.get_rect()
+        self.rect.x, self.rect.y = x,y
+        
+       # fazer os coqueiros se mexer 
+    def update(self):
         self.rect.x -= scroll_speed
         if self.rect.x <= -WIDTH:
             self.kill()
