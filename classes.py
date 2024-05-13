@@ -63,7 +63,7 @@ class coqueiro(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
         self.image = image
         self.rect = self.image.get_rect()
-        self.rect.x, self.rect.y = x,y
+        self.rect.x, self.rect.bottom = x,y
         
        # fazer os coqueiros se mexer 
     def update(self):

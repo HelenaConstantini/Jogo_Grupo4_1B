@@ -27,6 +27,7 @@ def main():
     all_sprites.add(tiago)
 
     run = True
+    coqueiro_timer = 0
 
     while run:
         #fecha o jogo
@@ -59,7 +60,6 @@ def main():
 
         # configurando coqueiros
 
-        coqueiro_timer = 0
         coqueiros = pygame.sprite.Group()
 
         # alocando coqueiros
@@ -68,8 +68,8 @@ def main():
             x_top, x_bottom = 550, 550
             y_top = random.randint(-600,-480)
             y_bottom = y_top + random.randint(90,130) + coqueiro_img.get_height()
-            coqueiros.add(coqueiro(x_top, y_top, nuvem_img))
-            coqueiros.add(coqueiro(x_bottom,y_bottom,coqueiro_img))
+            all_sprites.add(coqueiro(x_top, chao.rect.top, nuvem_img))
+            all_sprites.add(coqueiro(x_bottom,y_bottom,coqueiro_img))
             coqueiro_timer = random.randint(180,250)
         coqueiro_timer -= 1
         
@@ -77,14 +77,12 @@ def main():
 
         #atualiza chao, tiago e coqueiros
         all_sprites.update()
-        coqueiros.update()
 
         #fundo de tela
         screen.blit(fundo_blur_img, (0, 0)) #recebe dois argumentos: uma imagem e as coordenadas
 
         #desenha chao,tiago e coqueiros
         all_sprites.draw(screen)
-        coqueiros.draw(screen)
 
 
         clock.tick(FPS)
