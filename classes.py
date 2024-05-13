@@ -18,7 +18,7 @@ class Tiago (pygame.sprite.Sprite):
 
     def pular(self):
         self.pulo = True
-        self.vel += -5
+        self.vel += -10
 
 
     def update(self):
