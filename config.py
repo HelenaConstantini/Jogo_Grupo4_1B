@@ -23,8 +23,9 @@ QUIT = 2
 #imagens
 fundo_blur_img = pygame.image.load("imagens/fundo_blur.JPEG") 
 coqueiro_img = pygame.image.load("imagens/coqueiro.PNG")
-coqueiro_img = pygame.transform.scale(coqueiro_img, (20, 50))
+coqueiro_img = pygame.transform.scale(coqueiro_img, (80, 200)) 
 nuvem_img = pygame.image.load("imagens/nuvem.PNG")
+nuvem_img = pygame.transform.scale(nuvem_img, (80, 200))
 tela_inicio_img = pygame.image.load("imagens/tela_inicio.JPEG")   
 chao_img = pygame.image.load("imagens/chao.JPEG")
 personagem = pygame.image.load("imagens/personagem.PNG") 
