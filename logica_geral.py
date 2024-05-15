@@ -44,7 +44,7 @@ def main():
     for _ in range(10):
         coqueiros_img.append(pygame.transform.scale(coqueiro_img, (80, 200 + random.randint(0, 50))))
     nuvem_img = pygame.image.load("imagens/nuvem.PNG")
-    nuvem_img = pygame.transform.scale(nuvem_img, (120, 200))
+    nuvem_img = pygame.transform.scale(nuvem_img, (175, 200))
     tela_inicio_img = pygame.image.load("imagens/tela_inicio.JPEG")   
     chao_img = pygame.image.load("imagens/chao.JPEG")
     personagem = pygame.image.load("imagens/personagem.PNG") 

@@ -14,11 +14,11 @@ def load_assets():
     for _ in range(10):
         coqueiros_img.append(pygame.transform.scale(coqueiro_img, (80, 200 + random.randint(0, 50))))
     nuvem_img = pygame.image.load("imagens/nuvem.PNG")
-    nuvem_img = pygame.transform.scale(nuvem_img, (100, 150))
+    nuvem_img = pygame.transform.scale(nuvem_img, (75, 75))
     tela_inicio_img = pygame.image.load("imagens/tela_inicio.JPEG")   
     chao_img = pygame.image.load("imagens/chao.JPEG")
     personagem = pygame.image.load("imagens/personagem.PNG") 
-    personagem = pygame.transform.scale(personagem, (65, 65))
+    personagem = pygame.transform.scale(personagem, (50, 50))
     ground_img = pygame.image.load("imagens/ground.PNG")
     return {
         'font': font,
