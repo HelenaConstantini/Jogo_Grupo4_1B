@@ -24,5 +24,8 @@ def load_assets():
         'font': font,
         'ground_img': ground_img,
         'personagem': personagem,
-        'nuvem': nuvem_img
+        'nuvem': nuvem_img,
+        'tela_inicio': tela_inicio_img,
+        'coqueiro': coqueiros_img,
+        'fundo_blur': fundo_blur_img
     }
