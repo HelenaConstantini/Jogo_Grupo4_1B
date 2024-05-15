@@ -67,7 +67,7 @@ class coqueiro(pygame.sprite.Sprite):
         self.image = image
         self.rect = self.image.get_rect()
         self.rect.x, self.rect.bottom = x,y
-        self.enter, self.exit, self.passed = False, False, False
+        self.entrou, self.saiu, self.passou = False, False, False
         self.coqueiro_tipo = coqueiro_tipo
         
        # fazer os coqueiros se mexer 
@@ -75,6 +75,7 @@ class coqueiro(pygame.sprite.Sprite):
         self.rect.x -= scroll_speed
         if self.rect.x <= -WIDTH:
             self.kill()
+
 
         
 

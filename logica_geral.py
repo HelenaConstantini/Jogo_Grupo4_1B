@@ -7,7 +7,7 @@ from sys import exit
 import random
 from assets import load_assets
 
-
+score = 0
 def main():
     global score
 
@@ -32,7 +32,6 @@ def main():
 
     run = True
     coqueiro_timer = 0
-    score = 0
 
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     clock = pygame.time.Clock()
@@ -91,9 +90,11 @@ def main():
         if coqueiro_timer <= 0 and tiago.vivo:
             x_top, x_bottom = 550, 550
             y_top = random.randint(-600,-480)
-            y_bottom = y_top + random.randint(90,130) + coqueiro_img.get_height()
+            y_bottom = y_top + random.randint(90,100) + coqueiro_img.get_height()
             all_sprites.add(coqueiro(x_top, chao.rect.top, random.choice(coqueiros_img), 'topo'))
             all_sprites.add(coqueiro(x_bottom, y_bottom, load_assets()['nuvem'], 'baixo'))
+            coqueiros.add(coqueiro(x_bottom, y_bottom, load_assets()['nuvem'], 'baixo'), coqueiro(x_top, chao.rect.top, random.choice(coqueiros_img), 'topo'))
+            print (len(coqueiros))
             coqueiro_timer = random.randint(180,250)
         coqueiro_timer -= 1 
         
@@ -102,14 +103,11 @@ def main():
         # conta ponto
         # score
         for c in coqueiros:
-            if c.coqueiro_tipo == 'baixo':
-                if pos_inic_tiago[0] > c.rect.topleft[0] and not c.passed:
-                    c.enter = True
-                if pos_inic_tiago[0] > c.rect.topright[0] and not c.passed:
-                    c.exit = True
-                if c.enter and c.exit and not c.passed:
-                    c.passed = True
-                    score += 1
+            print(f"Tiago x: {tiago.rect.x + tiago.rect.width}, Coqueiro right: {c.rect.x}")
+            if not c.passou and c.rect.x <= 125:
+                c.passou = True
+                score += 1
+                print(f"Score updated to {score}, coqueiro passed at {c.rect.x}")
 
 
 
