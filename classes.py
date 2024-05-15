@@ -76,5 +76,6 @@ class coqueiro(pygame.sprite.Sprite):
         if self.rect.x <= -WIDTH:
             self.kill()
 
+        
 
 

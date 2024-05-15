@@ -23,6 +23,9 @@ def main():
     all_sprites.add(chao)
     ground.add(chao)
 
+     
+    coqueiros = pygame.sprite.Group()
+    
     # Inicializa Tiago
     tiago = Tiago(assets)
     all_sprites.add(tiago)
@@ -81,7 +84,7 @@ def main():
 
         # configurando coqueiros
 
-        coqueiros = pygame.sprite.Group()
+       
 
         # alocando coqueiros
 
@@ -97,7 +100,7 @@ def main():
 
 
         # conta ponto
-        #score
+        # score
         for c in coqueiros:
             if c.coqueiro_tipo == 'baixo':
                 if pos_inic_tiago[0] > c.rect.topleft[0] and not c.passed:
