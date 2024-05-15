@@ -1,5 +1,6 @@
 import pygame
 from os import path
+import random
 
 # Estabelece a pasta que contem as figuras e sons.
 IMG_DIR = path.join(path.dirname(__file__), 'imagens')
@@ -23,7 +24,9 @@ QUIT = 2
 #imagens
 fundo_blur_img = pygame.image.load("imagens/fundo_blur.JPEG") 
 coqueiro_img = pygame.image.load("imagens/coqueiro.PNG")
-coqueiro_img = pygame.transform.scale(coqueiro_img, (80, 200)) 
+coqueiros_img = []
+for _ in range(10):
+    coqueiros_img.append(pygame.transform.scale(coqueiro_img, (80, 150 + random.randint(0, 50))))
 nuvem_img = pygame.image.load("imagens/nuvem.PNG")
 nuvem_img = pygame.transform.scale(nuvem_img, (80, 200))
 tela_inicio_img = pygame.image.load("imagens/tela_inicio.JPEG")   
