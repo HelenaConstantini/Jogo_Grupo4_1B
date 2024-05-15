@@ -5,7 +5,7 @@ from os import path
 from config import *
 
 
-scroll_speed = 1
+scroll_speed = 2
 
 class Tiago (pygame.sprite.Sprite): 
     def __init__(self):

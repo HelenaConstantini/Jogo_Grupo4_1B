@@ -11,7 +11,6 @@ import random
 
 
 def main():
-    scroll_speed = 1
     clock = pygame.time.Clock()
     all_sprites = pygame.sprite.Group()
 
