@@ -5,29 +5,50 @@ from config import *
 from classes import *
 from sys import exit
 import random
-
-
-#pygame.init()
+from assets import load_assets
 
 
 def main():
+    global score
+
+    assets = load_assets()
+
     clock = pygame.time.Clock()
     all_sprites = pygame.sprite.Group()
 
     ground = pygame.sprite.Group()
     #nuvem = pygame.sprite.Group()
     x_inicial, y_inicial = 0, 500
-    chao = Chao(x_inicial, y_inicial)
+    chao = Chao(assets, x_inicial, y_inicial)
     all_sprites.add(chao)
     ground.add(chao)
 
     # Inicializa Tiago
-    tiago = Tiago()
+    tiago = Tiago(assets)
     all_sprites.add(tiago)
 
     run = True
     coqueiro_timer = 0
     score = 0
+
+    screen = pygame.display.set_mode((WIDTH, HEIGHT))
+    clock = pygame.time.Clock()
+
+    font = pygame.font.SysFont(None,26) # fonte do score
+
+
+    #imagens
+    fundo_blur_img = pygame.image.load("imagens/fundo_blur.JPEG") 
+    coqueiro_img = pygame.image.load("imagens/coqueiro.PNG")
+    coqueiros_img = []
+    for _ in range(10):
+        coqueiros_img.append(pygame.transform.scale(coqueiro_img, (80, 200 + random.randint(0, 50))))
+    nuvem_img = pygame.image.load("imagens/nuvem.PNG")
+    nuvem_img = pygame.transform.scale(nuvem_img, (120, 200))
+    tela_inicio_img = pygame.image.load("imagens/tela_inicio.JPEG")   
+    chao_img = pygame.image.load("imagens/chao.JPEG")
+    personagem = pygame.image.load("imagens/personagem.PNG") 
+    ground_img = pygame.image.load("imagens/ground.PNG")
 
     while run:
         #fecha o jogo
@@ -46,7 +67,7 @@ def main():
 
         
         if len(ground) < 2:
-            chao = Chao(WIDTH, y_inicial)
+            chao = Chao(assets, WIDTH, y_inicial)
             all_sprites.add(chao)
             ground.add(chao)
 
@@ -64,15 +85,30 @@ def main():
 
         # alocando coqueiros
 
-        if coqueiro_timer <= 0:
+        if coqueiro_timer <= 0 and tiago.vivo:
             x_top, x_bottom = 550, 550
             y_top = random.randint(-600,-480)
             y_bottom = y_top + random.randint(90,130) + coqueiro_img.get_height()
-            all_sprites.add(coqueiro(x_top, chao.rect.top, random.choice(coqueiros_img)))
-            all_sprites.add(coqueiro(x_bottom, y_bottom, nuvem_img))
+            all_sprites.add(coqueiro(x_top, chao.rect.top, random.choice(coqueiros_img), 'topo'))
+            all_sprites.add(coqueiro(x_bottom, y_bottom, load_assets()['nuvem'], 'baixo'))
             coqueiro_timer = random.randint(180,250)
         coqueiro_timer -= 1 
         
+
+
+        # conta ponto
+        #score
+        for c in coqueiros:
+            if c.coqueiro_tipo == 'baixo':
+                if pos_inic_tiago[0] > c.rect.topleft[0] and not c.passed:
+                    c.enter = True
+                if pos_inic_tiago[0] > c.rect.topright[0] and not c.passed:
+                    c.exit = True
+                if c.enter and c.exit and not c.passed:
+                    c.passed = True
+                    score += 1
+
+
 
 
         #atualiza chao, tiago e coqueiros
@@ -84,9 +120,15 @@ def main():
         #desenha chao,tiago e coqueiros
         all_sprites.draw(screen)
 
+        #score
+        score_text = font.render('Score: ' + str(score), True, pygame.Color(255, 255, 0))
+        screen.blit(score_text, (20, 20))
 
+        
         clock.tick(FPS)
         pygame.display.update()
+
+pygame.init()
 
 main()
 

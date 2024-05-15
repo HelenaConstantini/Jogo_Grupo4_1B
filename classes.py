@@ -3,14 +3,14 @@ from typing import Any
 import pygame 
 from os import path 
 from config import *
+from assets import load_assets
 
 
-scroll_speed = 2
 
 class Tiago (pygame.sprite.Sprite): 
-    def __init__(self):
+    def __init__(self, assets):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.transform.scale(personagem, (65, 65))
+        self.image = assets['personagem']
         self.rect = self.image.get_rect()
         self.rect.center = pos_inic_tiago
         self.vel = 5
@@ -43,9 +43,9 @@ class Tiago (pygame.sprite.Sprite):
 
 
 class Chao(pygame.sprite.Sprite):
-    def __init__(self, x, y):
+    def __init__(self, assets, x, y):
         pygame.sprite.Sprite.__init__(self)
-        self.image = ground_img
+        self.image = assets['ground_img']
         self.rect = self.image.get_rect()
         self.rect.x, self.rect.y = x, y
 
@@ -60,15 +60,19 @@ class Chao(pygame.sprite.Sprite):
  # coqueiros
 
 class coqueiro(pygame.sprite.Sprite):
-    def __init__(self,x,y,image):
+    def __init__(self, x,y,image, coqueiro_tipo):
         pygame.sprite.Sprite.__init__(self)
         self.image = image
         self.rect = self.image.get_rect()
         self.rect.x, self.rect.bottom = x,y
+        self.enter, self.exit, self.passed = False, False, False
+        self.coqueiro_tipo = coqueiro_tipo
         
        # fazer os coqueiros se mexer 
     def update(self):
         self.rect.x -= scroll_speed
         if self.rect.x <= -WIDTH:
             self.kill()
+
+
 
