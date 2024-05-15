@@ -9,6 +9,8 @@ FNT_DIR = path.join(path.dirname(__file__), 'imagens')
 
 scroll_speed = 2
 pos_inic_tiago = (100, 250) # Posição spawn Tiago 
+font = pygame.font.SysFont('Segoe',26) # fonte do score
+
 
 WIDTH = 551 # Largura da tela 
 HEIGHT = 600 # Altura da tela

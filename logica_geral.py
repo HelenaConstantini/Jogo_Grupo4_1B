@@ -27,6 +27,7 @@ def main():
 
     run = True
     coqueiro_timer = 0
+    score = 0
 
     while run:
         #fecha o jogo
@@ -40,7 +41,7 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:
+                if event.key == pygame.K_SPACE and tiago.vivo:
                     tiago.pular()
 
         

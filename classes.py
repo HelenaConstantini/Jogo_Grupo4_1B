@@ -15,6 +15,7 @@ class Tiago (pygame.sprite.Sprite):
         self.rect.center = pos_inic_tiago
         self.vel = 5
         self.pulo = False
+        self.vivo = True
 
     def pular(self):
         self.pulo = True
