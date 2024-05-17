@@ -52,7 +52,8 @@ def main():
     chao_img = pygame.image.load("imagens/chao.JPEG")
     personagem = pygame.image.load("imagens/personagem.PNG") 
     ground_img = pygame.image.load("imagens/ground.PNG") 
-
+    game_over = pygame.image.load("imagens/game_over.JPG")
+    game_over = pygame.transform.scale(game_over, (WIDTH, HEIGHT))
     while run:
         #fecha o jogo
 
@@ -150,7 +151,7 @@ def main():
         screen.blit(score_text, (20, 20))
 
         if tiago.vivo == False: 
-            screen.blit(tela_inicio_img, (0, 0))
+            screen.blit(game_over, (0, 0))
         clock.tick(FPS)
         pygame.display.update()
 

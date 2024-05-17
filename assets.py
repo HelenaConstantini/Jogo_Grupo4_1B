@@ -20,6 +20,7 @@ def load_assets():
     personagem = pygame.image.load("imagens/personagem.PNG") 
     personagem = pygame.transform.scale(personagem, (50, 50))
     ground_img = pygame.image.load("imagens/ground.PNG")
+    game_over = pygame.image.load("imagens/game_over.JPG")
     return {
         'font': font,
         'ground_img': ground_img,
@@ -27,5 +28,6 @@ def load_assets():
         'nuvem': nuvem_img,
         'tela_inicio': tela_inicio_img,
         'coqueiro': coqueiros_img,
-        'fundo_blur': fundo_blur_img
+        'fundo_blur': fundo_blur_img,
+        'game_over': game_over
     }
