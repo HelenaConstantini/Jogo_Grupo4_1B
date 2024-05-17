@@ -74,7 +74,6 @@ class coqueiro(pygame.sprite.Sprite):
         self.rect.x -= scroll_speed
         if self.rect.x <= -self.rect.width:
             self.kill()
-        print(self.rect.x, self.passou)
 
 
         

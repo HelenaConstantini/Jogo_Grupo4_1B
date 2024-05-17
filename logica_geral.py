@@ -114,7 +114,7 @@ def main():
             i += 1 
             if not c.passou and c.rect.x <= 125:
                 c.passou = True
-                score += 0.5
+                score += 1
 
 
 
@@ -146,7 +146,7 @@ def main():
         all_sprites.draw(screen)
 
         #score
-        score_text = font.render('Score: ' + str(score), True, pygame.Color(255, 255, 0))
+        score_text = font.render(f'Score: {score/2:.0f}', True, pygame.Color(255, 255, 0))
         screen.blit(score_text, (20, 20))
 
         if tiago.vivo == False: 
