@@ -15,7 +15,7 @@ def main():
 
     clock = pygame.time.Clock()
     all_sprites = pygame.sprite.Group()
-
+    ts = pygame.sprite.GroupSingle()
     ground = pygame.sprite.Group()
     #nuvem = pygame.sprite.Group()
     x_inicial, y_inicial = 0, 500
@@ -29,6 +29,7 @@ def main():
     # Inicializa Tiago
     tiago = Tiago(assets)
     all_sprites.add(tiago)
+    ts.add(tiago)
 
     run = True
     coqueiro_timer = 0
@@ -96,7 +97,8 @@ def main():
             all_sprites.add(cima)
             all_sprites.add(baixo)
             # coqueiros.add(cima)
-            coqueiros.add(baixo)
+            coqueiros.add(baixo) 
+            coqueiros.add(cima)
             # print (len(coqueiros))
             coqueiro_timer = 100 
             if score >= 2: 
@@ -112,13 +114,30 @@ def main():
             i += 1 
             if not c.passou and c.rect.x <= 125:
                 c.passou = True
-                score += 1
+                score += 0.5
 
 
 
 
         #atualiza chao, tiago e coqueiros
         all_sprites.update()
+
+
+        #colisao
+        colisao_coqueiro = pygame.sprite.spritecollide(ts.sprites()[0], coqueiros, False)
+        colisao_chao = pygame.sprite.spritecollide(ts.sprites()[0], ground, False)
+        if colisao_chao or colisao_coqueiro:
+            tiago.vivo = False
+            if colisao_chao:
+                screen.blit(tela_inicio_img, (WIDTH // 2 - tela_inicio_img.get_width() // 2,
+                                              HEIGHT // 2 - tela_inicio_img.get_height() // 2))
+                for event in pygame.event.get():
+                    if event.type == pygame.KEYDOWN:
+                        if event.key == pygame.K_r:
+                            score = 0
+                            break
+                        
+
 
         #fundo de tela
         screen.blit(fundo_blur_img, (0, 0)) #recebe dois argumentos: uma imagem e as coordenadas
@@ -130,7 +149,8 @@ def main():
         score_text = font.render('Score: ' + str(score), True, pygame.Color(255, 255, 0))
         screen.blit(score_text, (20, 20))
 
-        
+        if tiago.vivo == False: 
+            screen.blit(tela_inicio_img, (0, 0))
         clock.tick(FPS)
         pygame.display.update()
 
