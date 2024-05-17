@@ -4,7 +4,7 @@ import pygame
 from config import *
 from classes import *
 from sys import exit
-import random
+import random 
 from assets import load_assets
 
 score = 0
@@ -98,7 +98,9 @@ def main():
             # coqueiros.add(cima)
             coqueiros.add(baixo)
             # print (len(coqueiros))
-            coqueiro_timer = random.randint(180,250)
+            coqueiro_timer = 100 
+            if score >= 2: 
+                scroll_speed = 4
         coqueiro_timer -= 1 
         
 

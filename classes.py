@@ -19,7 +19,7 @@ class Tiago (pygame.sprite.Sprite):
 
     def pular(self):
         self.pulo = True
-        self.vel += -10 
+        self.vel += -10
         if self.vel < -20: 
             self.vel = -20
 
@@ -29,10 +29,10 @@ class Tiago (pygame.sprite.Sprite):
             self.pulo = False
 
         self.rect.y += int(self.vel)
-        # Gravidade e pulo
-        self.vel += 0.5
+        # Gravidade 
+        self.vel += 0.55
         if self.vel > 5:
-            self.vel = 5
+            self.vel = 5 
         # if self.rect.y < 500:
         #     self.rect.y += int(self.vel)
 
