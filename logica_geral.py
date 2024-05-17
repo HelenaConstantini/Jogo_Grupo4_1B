@@ -50,7 +50,7 @@ def main():
     tela_inicio_img = pygame.image.load("imagens/tela_inicio.JPEG")   
     chao_img = pygame.image.load("imagens/chao.JPEG")
     personagem = pygame.image.load("imagens/personagem.PNG") 
-    ground_img = pygame.image.load("imagens/ground.PNG")
+    ground_img = pygame.image.load("imagens/ground.PNG") 
 
     while run:
         #fecha o jogo
@@ -89,12 +89,15 @@ def main():
 
         if coqueiro_timer <= 0 and tiago.vivo:
             x_top, x_bottom = 550, 550
-            y_top = random.randint(-600,-480)
-            y_bottom = y_top + random.randint(90,100) + coqueiro_img.get_height()
-            all_sprites.add(coqueiro(x_top, chao.rect.top, random.choice(coqueiros_img), 'topo'))
-            all_sprites.add(coqueiro(x_bottom, y_bottom, load_assets()['nuvem'], 'baixo'))
-            coqueiros.add(coqueiro(x_bottom, y_bottom, load_assets()['nuvem'], 'baixo'), coqueiro(x_top, chao.rect.top, random.choice(coqueiros_img), 'topo'))
-            print (len(coqueiros))
+            y_top = random.randint(-650,-550)
+            y_bottom = y_top + 100 + coqueiro_img.get_height()
+            cima = coqueiro(x_bottom, y_bottom, load_assets()['nuvem'])
+            baixo = coqueiro(x_top, chao.rect.top, random.choice(coqueiros_img))
+            all_sprites.add(cima)
+            all_sprites.add(baixo)
+            # coqueiros.add(cima)
+            coqueiros.add(baixo)
+            # print (len(coqueiros))
             coqueiro_timer = random.randint(180,250)
         coqueiro_timer -= 1 
         
@@ -102,12 +105,12 @@ def main():
 
         # conta ponto
         # score
+        i = 0
         for c in coqueiros:
-            print(f"Tiago x: {tiago.rect.x + tiago.rect.width}, Coqueiro right: {c.rect.x}")
+            i += 1 
             if not c.passou and c.rect.x <= 125:
                 c.passou = True
                 score += 1
-                print(f"Score updated to {score}, coqueiro passed at {c.rect.x}")
 
 
 

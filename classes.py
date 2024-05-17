@@ -62,19 +62,19 @@ class Chao(pygame.sprite.Sprite):
  # coqueiros
 
 class coqueiro(pygame.sprite.Sprite):
-    def __init__(self, x,y,image, coqueiro_tipo):
+    def __init__(self, x,y,image):
         pygame.sprite.Sprite.__init__(self)
         self.image = image
         self.rect = self.image.get_rect()
         self.rect.x, self.rect.bottom = x,y
         self.entrou, self.saiu, self.passou = False, False, False
-        self.coqueiro_tipo = coqueiro_tipo
         
        # fazer os coqueiros se mexer 
     def update(self):
         self.rect.x -= scroll_speed
-        if self.rect.x <= -WIDTH:
+        if self.rect.x <= -self.rect.width:
             self.kill()
+        print(self.rect.x, self.passou)
 
 
         
