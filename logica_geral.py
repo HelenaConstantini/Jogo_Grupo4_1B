@@ -8,10 +8,10 @@ import random
 from assets import load_assets
 
 run = True
-fim_de_jogo = False
+fim_de_jogo = True
 score = 0
 
-#pygame.init()
+pygame.init()
 
 def quit_game():
     for event in pygame.event.get():
@@ -168,35 +168,37 @@ def main():
 
 
         if tiago.vivo == False: 
-            current_time = pygame.time.get_ticks()
-            display_time = 5000
-            if current_time < start_time + display_time:
-                screen.blit(game_over, (0, 0))
-            fim_de_jogo = True
+            #current_time = pygame.time.get_ticks()
+            #display_time = 5000
+            #if current_time < start_time + display_time:
+            screen.blit(game_over, (0, 0))
             clock.tick(FPS)
             pygame.display.update()
     
         clock.tick(FPS)
         pygame.display.update()
 
-pygame.init()
+#pygame.init()
 
-main()
+#main()
 
-#def menu():
-    #global fim_de_jogo
+def menu():
+    global fim_de_jogo
 
-    #while fim_de_jogo:
-    #    quit_game()
+    while fim_de_jogo:
+        quit_game()
             
         #tela inicial
-    #    screen.blit(load_assets()['tela_inicio'], (0, 0))
+        screen.blit(load_assets()['tela_inicio'], (0, 0))
 
         #user input
-    #    user_input = pygame.key.get_pressed()
-    #    if user_input[pygame.K_SPACE]:
-    #        main()
+        user_input = pygame.key.get_pressed()
+        if user_input[pygame.K_SPACE]:
+            main()
 
+        pygame.display.update()
+
+menu()
 
 #pygame.init()
 #pygame.mixer.init()
