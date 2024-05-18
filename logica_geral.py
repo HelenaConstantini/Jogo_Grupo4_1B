@@ -91,7 +91,7 @@ def main():
 
         if coqueiro_timer <= 0 and tiago.vivo:
             x_top, x_bottom = 550, 550
-            y_top = random.randint(-650,-550)
+            y_top = random.randint(-650,-560)
             y_bottom = y_top + 100 + coqueiro_img.get_height()
             cima = coqueiro(x_bottom, y_bottom, load_assets()['nuvem'])
             baixo = coqueiro(x_top, chao.rect.top, random.choice(coqueiros_img))
