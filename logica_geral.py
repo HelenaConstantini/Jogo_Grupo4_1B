@@ -7,11 +7,26 @@ from sys import exit
 import random 
 from assets import load_assets
 
+run = True
+fim_de_jogo = False
 score = 0
+
+#pygame.init()
+
+def quit_game():
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            exit()
+
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+
 def main():
     global score
 
+
     assets = load_assets()
+
 
     clock = pygame.time.Clock()
     all_sprites = pygame.sprite.Group()
@@ -23,7 +38,7 @@ def main():
     all_sprites.add(chao)
     ground.add(chao)
 
-     
+    start_time = pygame.time.get_ticks() 
     coqueiros = pygame.sprite.Group()
     
     # Inicializa Tiago
@@ -34,7 +49,7 @@ def main():
     run = True
     coqueiro_timer = 0
 
-    screen = pygame.display.set_mode((WIDTH, HEIGHT))
+    #screen = pygame.display.set_mode((WIDTH, HEIGHT))
     clock = pygame.time.Clock()
 
     font = pygame.font.SysFont(None,26) # fonte do score
@@ -54,6 +69,9 @@ def main():
     ground_img = pygame.image.load("imagens/ground.PNG") 
     game_over = pygame.image.load("imagens/game_over.JPG")
     game_over = pygame.transform.scale(game_over, (WIDTH, HEIGHT))
+    
+
+    
     while run:
         #fecha o jogo
 
@@ -83,9 +101,6 @@ def main():
         if tiago.rect.top < 0:
             tiago.rect.top = 0
 
-        # configurando coqueiros
-
-       
 
         # alocando coqueiros
 
@@ -150,8 +165,17 @@ def main():
         score_text = font.render(f'Score: {score/2:.0f}', True, pygame.Color(255, 255, 0))
         screen.blit(score_text, (20, 20))
 
+
+
         if tiago.vivo == False: 
-            screen.blit(game_over, (0, 0))
+            current_time = pygame.time.get_ticks()
+            display_time = 5000
+            if current_time < start_time + display_time:
+                screen.blit(game_over, (0, 0))
+            fim_de_jogo = True
+            clock.tick(FPS)
+            pygame.display.update()
+    
         clock.tick(FPS)
         pygame.display.update()
 
@@ -159,6 +183,19 @@ pygame.init()
 
 main()
 
+#def menu():
+    #global fim_de_jogo
+
+    #while fim_de_jogo:
+    #    quit_game()
+            
+        #tela inicial
+    #    screen.blit(load_assets()['tela_inicio'], (0, 0))
+
+        #user input
+    #    user_input = pygame.key.get_pressed()
+    #    if user_input[pygame.K_SPACE]:
+    #        main()
 
 
 #pygame.init()
