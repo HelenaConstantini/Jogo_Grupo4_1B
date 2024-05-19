@@ -168,9 +168,9 @@ def main():
 
 
         if tiago.vivo == False: 
-            #current_time = pygame.time.get_ticks()
-            #display_time = 5000
-            #if current_time < start_time + display_time:
+            # while tiago.rect.bottom != chao.rect.top: 
+                # tiago.vel += 1
+            
             screen.blit(game_over, (0, 0))
             clock.tick(FPS)
             pygame.display.update()
