@@ -56,7 +56,7 @@ def main():
 
     font = pygame.font.SysFont(None,26) # fonte do score
 
-    soma = 0
+
     #imagens
     fundo_blur_img = pygame.image.load("imagens/fundo_blur.JPEG") 
     coqueiro_img = pygame.image.load("imagens/coqueiro.PNG")
