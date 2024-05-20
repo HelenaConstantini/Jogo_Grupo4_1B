@@ -27,7 +27,8 @@ def main():
 
     assets = load_assets()
 
-    musica = pygame.mixer.music.load("sound/arere.mp3")
+    pygame.mixer.music.load("sound/arere.mp3")
+    pygame.mixer.music.play()
 
     clock = pygame.time.Clock()
     all_sprites = pygame.sprite.Group()
@@ -78,8 +79,6 @@ def main():
 
 
     while run:
-
-        #fecha o jogo
 
         #reset frame
         screen.fill((0, 0, 0))
@@ -177,7 +176,6 @@ def main():
         screen.blit(score_text, (20, 20))
 
 
-
         if tiago.vivo == False: 
             score = 0 
             # while tiago.rect.bottom != chao.rect.top: 
@@ -196,6 +194,7 @@ def main():
 
 def menu():
     global fim_de_jogo
+
 
     while fim_de_jogo:
         quit_game()
