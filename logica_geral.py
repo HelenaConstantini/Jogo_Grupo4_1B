@@ -7,6 +7,8 @@ from sys import exit
 import random 
 from assets import load_assets
 
+pygame.mixer.init()
+
 run = True
 fim_de_jogo = True
 score = 0
@@ -22,11 +24,10 @@ def quit_game():
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
 def main():
-    global score
-
 
     assets = load_assets()
 
+    musica = pygame.mixer.music.load("sound/arere.mp3")
 
     clock = pygame.time.Clock()
     all_sprites = pygame.sprite.Group()
@@ -54,7 +55,7 @@ def main():
 
     font = pygame.font.SysFont(None,26) # fonte do score
 
-
+    soma = 0
     #imagens
     fundo_blur_img = pygame.image.load("imagens/fundo_blur.JPEG") 
     coqueiro_img = pygame.image.load("imagens/coqueiro.PNG")
@@ -70,9 +71,14 @@ def main():
     game_over = pygame.image.load("imagens/game_over.JPG")
     game_over = pygame.transform.scale(game_over, (WIDTH, HEIGHT))
     
+    general_scroll_speed = min_scroll_speed
+    jump_level = 2
+    time = 0
+    score = 0
 
-    
+
     while run:
+
         #fecha o jogo
 
         #reset frame
@@ -118,8 +124,13 @@ def main():
             # print (len(coqueiros))
             coqueiro_timer = 100 
         coqueiro_timer -= 1 
+        #time += 1
         
-
+        #if time % 120 == 0 and score % jump_level == 0:
+        #    time = 0
+        #    if general_scroll_speed < 8:
+        #        general_scroll_speed *= 1.1
+        #        soma += coqueiro_timer*0.1
 
         # conta ponto
         # score
@@ -135,6 +146,8 @@ def main():
 
         #atualiza chao, tiago e coqueiros
         all_sprites.update()
+        for c in coqueiros:
+            c.scroll_speed = int(general_scroll_speed)
 
 
         #colisao

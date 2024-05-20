@@ -49,10 +49,11 @@ class Chao(pygame.sprite.Sprite):
         self.image = assets['ground_img']
         self.rect = self.image.get_rect()
         self.rect.x, self.rect.y = x, y
+        self.scroll_speed = min_scroll_speed
 
     def update(self):
         #mexe o chão
-        self.rect.x -= scroll_speed
+        self.rect.x -= self.scroll_speed
         if self.rect.x <= -WIDTH:
             self.kill()
 
@@ -67,10 +68,11 @@ class coqueiro(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x, self.rect.bottom = x,y
         self.entrou, self.saiu, self.passou = False, False, False
+        self.scroll_speed = min_scroll_speed
         
        # fazer os coqueiros se mexer 
     def update(self):
-        self.rect.x -= scroll_speed
+        self.rect.x -= self.scroll_speed
         if self.rect.x <= -self.rect.width:
             self.kill()
 

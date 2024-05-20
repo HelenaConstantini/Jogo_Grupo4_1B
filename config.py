@@ -14,7 +14,7 @@ HEIGHT = 600 # Altura da tela
 FPS = 60 # Frames por segundo
 
 scroll_speed2 = 6
-scroll_speed = 3
+min_scroll_speed = 3
 pos_inic_tiago = (100, 250) # Posição spawn Tiago 
 
 # Estados para controle do fluxo da aplicação
