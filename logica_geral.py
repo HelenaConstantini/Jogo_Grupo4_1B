@@ -27,9 +27,6 @@ def main():
 
     assets = load_assets()
 
-    pygame.mixer.music.load("sound/arere.mp3")
-    pygame.mixer.music.play()
-
     clock = pygame.time.Clock()
     all_sprites = pygame.sprite.Group()
     ts = pygame.sprite.GroupSingle()
@@ -77,12 +74,16 @@ def main():
     time = 0
     score = 0
 
+    pygame.mixer.music.load("sound/arere.mp3")
+    pygame.mixer.music.set_volume(0.8)
+    pygame.mixer.music.play(loops=-1)
+
+
 
     while run:
 
         #reset frame
         screen.fill((0, 0, 0))
-
 
         # usuario 
         for event in pygame.event.get():
@@ -162,6 +163,7 @@ def main():
                         if event.key == pygame.K_r:
                             score = 0
                             break
+            pygame.mixer.music.stop()
                         
 
 
@@ -188,6 +190,7 @@ def main():
         clock.tick(FPS)
         pygame.display.update()
 
+
 #pygame.init()
 
 #main()
@@ -195,10 +198,10 @@ def main():
 def menu():
     global fim_de_jogo
 
-
     while fim_de_jogo:
         quit_game()
             
+
         #tela inicial
         screen.blit(load_assets()['tela_inicio'], (0, 0))
 

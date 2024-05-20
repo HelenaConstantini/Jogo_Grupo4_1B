@@ -24,7 +24,6 @@ def load_assets():
     personagem = pygame.transform.scale(personagem, (50, 50))
     ground_img = pygame.image.load("imagens/ground.PNG")
     game_over = pygame.image.load("imagens/game_over.JPG")
-    musica = pygame.mixer.music.load("sound/arere.mp3")
     return {
         'font': font,
         'ground_img': ground_img,
