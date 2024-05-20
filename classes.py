@@ -6,7 +6,6 @@ from config import *
 from assets import load_assets
 
 
-
 class Tiago (pygame.sprite.Sprite): 
     def __init__(self, assets):
         pygame.sprite.Sprite.__init__(self)

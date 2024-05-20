@@ -117,8 +117,6 @@ def main():
             coqueiros.add(cima)
             # print (len(coqueiros))
             coqueiro_timer = 100 
-            if score >= 2: 
-                scroll_speed = 4
         coqueiro_timer -= 1 
         
 
@@ -168,6 +166,7 @@ def main():
 
 
         if tiago.vivo == False: 
+            score = 0 
             # while tiago.rect.bottom != chao.rect.top: 
                 # tiago.vel += 1
             

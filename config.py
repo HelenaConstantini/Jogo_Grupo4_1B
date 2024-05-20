@@ -13,6 +13,7 @@ WIDTH = 551 # Largura da tela
 HEIGHT = 600 # Altura da tela
 FPS = 60 # Frames por segundo
 
+scroll_speed2 = 6
 scroll_speed = 3
 pos_inic_tiago = (100, 250) # Posição spawn Tiago 
 
