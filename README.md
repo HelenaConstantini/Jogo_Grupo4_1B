@@ -26,3 +26,9 @@ Arquivos:
     init_screen: local no qual informações da tela inicial estão alocadas
     logical_geral: local no qual o código principal está alocado e onde o jogo é executado
     
+Vídeo demonstrativo:
+https://drive.google.com/file/d/1_K6_zUP_epUwnHNDY6Zvw4XPIqoz5k9N/view?usp=sharing 
+
+Créditos das imagens: 
+ChatGPT 
+    
