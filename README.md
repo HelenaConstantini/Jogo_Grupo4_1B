@@ -5,11 +5,14 @@ Sobre o jogo:
 O objetivo de FlappyTiago é que o jogador consiga atravessar o maior número de coqueiros e nuvens possível. Caso o jogador encoste em um desses itens, Tiago morrerá instantaneamente.
 
 Instruções: 
+
  Tela Inicial: 
     Pressione "Space" ou "Espaço" para iniciar o jogo.
+    
  Durante o jogo: 
     Clique em "Space" ou "Espaço" para fazer o personagem subir.
     Procure fazer com que o personagem atravesse o coqueiro e a nuvem sem encostar em nada.
+    
  Tela de Game Over:
     Feche a tela para retornar a Tela Inicial.
 
